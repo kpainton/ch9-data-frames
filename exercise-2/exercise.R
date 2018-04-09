@@ -26,27 +26,27 @@ salaries$change <- salaries$salary_2018 - salaries$salary_2017
 # salary went up)
 salaries$got_raise <- salaries$change > 0
 
-
 ### Retrieve values from your data frame to answer the following questions
 ### Note that you should get the value as specific as possible (e.g., a single
 ### cell rather than the whole row!)
 
 # What was the 2018 salary of employee 57
-salaries[salaries$employees == "Employee 5", "salaries_2018"]
+salary57 <- salaries[salaries$employees == "Employee 57", "salaries_2018"]
 
 # How many employees got a raise?
 nrow(salaries[salaries$got_raise == TRUE, ])
 
 # What was the dollar value of the highest raise?
-
+highest <- max(salaries$change)
+  
 # What was the "name" of the employee who received the highest raise?
-
+got_biggest_raise <- salaries[salaries$change == highest, "employees"]
 
 # What was the largest decrease in salaries between the two years?
-
+smallest <- min(salaries$change)
 
 # What was the name of the employee who recieved largest decrease in salary?
-
+got_largest_paycut <- salaries[salaries$change == smallest, "employees"]
 
 # What was the average salary change?
 
