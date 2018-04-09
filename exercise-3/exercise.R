@@ -37,8 +37,13 @@ highest_1960 <- us_data$category[us_data$X1960 == max(us_data$X1960)]
 
  # Define a function `lowest_category` that takes in a year as a parameter, and
 # returns the lowest spending category of that year
-
+lowest_category <- function(year) {
+  col <- paste0('X', year)
+  us_data$category[us_data[, col]== min(us_data[, col])]
+}
 
 # Using your function, determine the lowest spending category of each year
 # Hint: use the `sapply()` function to apply your function to a vector of years
+lowest <- sapply(seq(1940,1960, 5), lowest_category)
 
+              
